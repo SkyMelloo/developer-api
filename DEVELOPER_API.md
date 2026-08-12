@@ -121,6 +121,8 @@ A key always acts as your own linked Minecraft account - there's no way to use o
 | Test key | `/api/public/mod/v1/` only | Any account with a linked Minecraft account |
 | Developer key | `/api/public/mod/v1/` and the internal API | Accounts with the Developer role |
 
+"Internal API" here means the same `/api/mod/*` routes the official mods use - not the admin/moderation panel. Those run on a completely separate website-session mechanism a Developer key can never satisfy, regardless of role.
+
 A key-authenticated response includes an `X-SkyMelloo-Notice` header as a reminder.
 
 Keys expire **3 days** after being generated - regenerate on your account page to keep using one. This isn't automatable, since regenerating needs a real logged-in website session.
