@@ -4,11 +4,12 @@
 
 - Found a mistake in the reference, or an endpoint that behaves differently than documented? Open a
   GitHub issue or a PR directly - both are fine here, unlike the mod repos.
-- Questions about using the API: a thread on [sky.melloo.me/community](https://sky.melloo.me/community),
-  GitHub Issues, or ask on Discord (**HexedMaya**). Prefer to ask privately instead?
+- Questions about using the API: a thread on [sky.melloo.me/community](https://sky.melloo.me/community)
+  or GitHub Issues. Prefer to ask privately instead?
   [sky.melloo.me/contact/ask](https://sky.melloo.me/contact/ask).
 - Security issues: see [SECURITY.md](https://github.com/SkyMelloo/SkyMelloo/blob/main/SECURITY.md)
   (shared policy across the whole SkyMelloo org) - never a public issue or PR.
+- Want to ask me directly? Add me on Discord: **HexedMaya**.
 
 ## What belongs here
 
