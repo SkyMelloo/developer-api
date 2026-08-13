@@ -1,0 +1,11 @@
+name: New Example / Request
+description: Ask for a new example, or a doc section covering something not yet explained
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What's missing?
+      description: What are you trying to do that the current reference/examples don't cover?
+    validations:
+      required: true
