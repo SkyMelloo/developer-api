@@ -5,8 +5,8 @@ This document describes the API surface intended for compatible SkyMelloo and Me
 > Base URL: `https://sky.melloo.me/api/public/mod/v1/`
 >
 > This is the **only** base URL a compatible client should use. `/api/mod/*` (no `public/v1`) is this
-> project's own internal path, used by the official SkyMelloo/MellooEssentials builds - it can change
-> shape at any time without notice. `/api/public/mod/v1/*` is stable: it won't change shape once
+> project's own internal path - don't use it. It can change or break at any time without notice and
+> isn't meant for external clients. `/api/public/mod/v1/*` is stable: it won't change shape once
 > published, and a future breaking change gets its own `/api/public/mod/v2/` instead. Changes to this
 > API are announced in the [API Changelog](https://sky.melloo.me/changelog/api).
 >
@@ -114,14 +114,18 @@ For testing without launching Minecraft each time, a logged-in sky.melloo.me acc
 X-SkyMelloo-Test-Key: <your key>
 ```
 
-A key always acts as your own linked Minecraft account - there's no way to use one to act as anyone else. Two types:
+A key always acts as your own linked Minecraft account - there's no way to use one to act as anyone else. Four types:
 
 | Type | Access | Who can generate one |
 |---|---|---|
 | Test key | `/api/public/mod/v1/` only | Any account with a linked Minecraft account |
-| Developer key | `/api/public/mod/v1/` and the internal API | Accounts with the Developer role |
+| Mod Developer key | `/api/public/mod/v1/` only, higher rate limit | Accounts with a mod-developer role |
+| Website Developer key | `/api/public/mod/v1/` and the internal API | Accounts with a website-developer role |
+| API Tester key | Same as a Website Developer key | Accounts with the API Tester role |
 
-"Internal API" here means the same `/api/mod/*` routes the official mods use - not the admin/moderation panel. Those run on a completely separate website-session mechanism a Developer key can never satisfy, regardless of role.
+Holding both a mod-developer and a website-developer role (Development Lead counts as both) lets you generate both dev key types independently - each is generated and revoked on its own.
+
+"Internal API" here means `/api/mod/*` itself (see the Base URL note above) - a Website Developer or API Tester key can call those routes directly, not just through the `/api/public/mod/v1/` alias. A Mod Developer key cannot - it only ever works through the `/api/public/mod/v1/` alias, same as a Test key. None of this means the admin/moderation panel, which runs on a completely separate website-session mechanism a key can never satisfy, regardless of role.
 
 A key-authenticated response includes an `X-SkyMelloo-Notice` header as a reminder.
 
@@ -300,8 +304,9 @@ Current application-level limits, all on a 1-minute window:
 
 - normal API traffic: **1200 requests / minute / IP**
 - internal mod traffic (official builds): **500 requests / minute / verified Minecraft UUID**
-- `/api/public/mod/v1/*`: **600 requests / minute / verified Minecraft UUID or personal key**
-- personal API key traffic specifically: **200 requests / minute / key**
+- `/api/public/mod/v1/*` via real mod-auth (no personal key): **600 requests / minute / verified Minecraft UUID**
+- personal API key traffic: its own budget per **individual key**, not shared across keys on the same account -
+  Test key **400/minute**, Mod Developer/Website Developer/API Tester keys **1000/minute** each
 - fresh (non-cached) Hypixel-backed lookups: **5 / minute / caller**, shared Hypixel API key budget
 
 A rate-limited request returns HTTP `429`, normally with:
@@ -1332,8 +1337,12 @@ Use of the API does not imply endorsement, partnership, or official status, and 
 
 ---
 
-## License / project status
+## License
 
 SkyMelloo is an unofficial Hypixel SkyBlock project and is not approved by or associated with Mojang, Microsoft, or Hypixel Inc.
 
-When redistributing or modifying SkyMelloo, follow the repository's license and attribution requirements.
+When redistributing or modifying SkyMelloo, follow the repository's [license](https://sky.melloo.me/license) and attribution requirements.
+
+## Project status
+
+Live uptime and incident history for the components this API depends on: [project status](https://sky.melloo.me/developer-api/status).
