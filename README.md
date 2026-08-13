@@ -12,6 +12,10 @@ Base URL: `https://sky.melloo.me/api/public/mod/v1/`
 
 This is a hobby-project API with no SLA - see the reference doc's compatibility rules and responsible-use section before building against it.
 
+## Questions
+
+Using the API and have a question? Start a thread on [sky.melloo.me/community](https://sky.melloo.me/community), or if you'd rather ask privately: [sky.melloo.me/contact/ask](https://sky.melloo.me/contact/ask).
+
 ## Related
 
 - [SkyMelloo](https://github.com/SkyMelloo/SkyMelloo)
