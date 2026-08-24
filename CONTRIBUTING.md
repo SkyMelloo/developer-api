@@ -6,7 +6,7 @@
   GitHub issue or a PR directly - both are fine here, unlike the mod repos.
 - Questions about using the API: a thread on [sky.melloo.me/community](https://sky.melloo.me/community)
   or GitHub Issues. Prefer to ask privately instead?
-  [sky.melloo.me/contact/ask](https://sky.melloo.me/contact/ask).
+  [https://sky.melloo.me/ticket](https://sky.melloo.me/ticket).
 - Security issues: see [SECURITY.md](https://github.com/SkyMelloo/SkyMelloo/blob/main/SECURITY.md)
   (shared policy across the whole SkyMelloo org) - never a public issue or PR.
 - Want to ask me directly? Add me on Discord: **HexedMaya**.
