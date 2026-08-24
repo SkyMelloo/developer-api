@@ -14,7 +14,7 @@ This is a hobby-project API with no SLA - see the reference doc's compatibility 
 
 ## Questions
 
-Using the API and have a question? Start a thread on [sky.melloo.me/community](https://sky.melloo.me/community), or if you'd rather ask privately: [https://sky.melloo.me/ticket](https://sky.melloo.me/ticket).
+Using the API and have a question? Start a thread on [sky.melloo.me/community](https://sky.melloo.me/community), or if you'd rather ask privately: [sky.melloo.me/contact](https://sky.melloo.me/contact).
 
 ## Related
 
