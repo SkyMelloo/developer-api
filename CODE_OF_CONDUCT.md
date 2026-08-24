@@ -17,6 +17,7 @@ aspiration.
 - Harassment, insults, or discriminatory remarks directed at anyone, in any project space.
 - Deliberately excluding, mocking, or piling on someone because of who they are.
 - Sharing someone else's private information without their consent.
+- Political discussions or content, in general.
 - Sustained disruption of Issues, Discussions, or any other shared space.
 
 ## Enforcement
@@ -26,14 +27,19 @@ restriction - this can mean losing access to GitHub Issues/Discussions, a websit
 suspension, or any combination, at the maintainers' discretion. There's no escalation ladder
 required before that happens; a single serious incident is enough.
 
+Political content and sharing someone else's private information without consent are zero-discretion:
+a confirmed violation of either always results in a permanent ban, no exceptions.
+
 ## Reporting
 
 If you experience or witness behavior like this, please report it rather than letting it slide:
 
-- Email **maja@melloo.me**
-- Discord: **HexedMaya**
-- [Report a Bug](https://sky.melloo.me/report-bug) form for anything else that needs the team's
-  attention.
+- [Contact](https://sky.melloo.me/contact) page on the website for Discord or email
+- [Report a Bug](https://sky.melloo.me/report-bug) form specifically for bugs
+- [Open a ticket](https://sky.melloo.me/ticket) for anything else that needs the team's attention
 
 Reports are handled by the project's admins and moderators and kept confidential from the person
 being reported.
+
+(Discord handle and email aren't listed directly on this page - kept off of automated scraping
+targets like this one. Use Contact above instead.)
