@@ -645,7 +645,10 @@ If no cloud copy exists:
 }
 ```
 
-Use `updatedAt` to decide whether local or cloud data is newer. Do not blindly overwrite the newer copy.
+`updatedAt` tells you which copy is newer; what to do about that is left to the client, not
+mandated by this API. SkyMelloo itself currently resolves this by treating the cloud copy as
+authoritative on join (cloud wins), rather than doing a timestamp comparison - see the example
+below for one comparison-based approach if that fits your client better.
 
 ---
 
@@ -1087,6 +1090,11 @@ A typical compatible client launch can do:
 Do not persist the ephemeral private key merely to avoid authenticating on a later launch.
 
 ## Example: cloud-save startup decision
+
+The conflict policy below (compare `updatedAt`, newer copy wins) is one legitimate approach, not a
+requirement - it's what this section originally documented. SkyMelloo itself does not do this: it
+treats the cloud copy as authoritative on join regardless of timestamps (cloud always wins). Pick
+whichever policy fits your client.
 
 ```text
 local = loadLocalSettings()

@@ -1,7 +1,7 @@
-// Example: show a chat line with a party member's current Magical Power the moment they join your
-// party. Two pieces working together: (1) your mod's own party-join event (Hypixel parties aren't
-// visible to sky.melloo.me - you have to tell it who joined), (2) a signed v1 API call to look up
-// that player's stats.
+// Example: show a chat line with a party member's current Accessory Power the moment they join
+// your party. Two pieces working together: (1) your mod's own party-join event (Hypixel parties
+// aren't visible to sky.melloo.me - you have to tell it who joined), (2) a signed v1 API call to
+// look up that player's stats.
 //
 // This is illustrative, not a drop-in class - it assumes you already have Ed25519 signing wired up
 // per DEVELOPER_API.md section 3 (SignedRequest.send(...) below stands in for that). Adjust the
@@ -15,7 +15,7 @@ import java.util.UUID;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-public class PartyMagicalPowerDisplay {
+public class PartyAccessoryPowerDisplay {
 
     private static final Gson GSON = new Gson();
 
@@ -24,7 +24,7 @@ public class PartyMagicalPowerDisplay {
         // Fire-and-forget from the game thread's perspective - don't block gameplay on a network call.
         SignedRequest
             .getAsync("/player/" + username)
-            .thenAccept(PartyMagicalPowerDisplay::handlePlayerResponse)
+            .thenAccept(PartyAccessoryPowerDisplay::handlePlayerResponse)
             .exceptionally(err -> {
                 // Never let a failed lookup do anything more than skip the message - see
                 // DEVELOPER_API.md's "resilient request wrapper" example for the general pattern.
@@ -42,11 +42,11 @@ public class PartyMagicalPowerDisplay {
 
         JsonObject body = GSON.fromJson(response.body(), JsonObject.class);
         // Adjust this path to the real response shape - illustrative placeholder.
-        Integer magicalPower = readIntPath(body, "stats", "magical_power");
+        Integer accessoryPower = readIntPath(body, "stats", "accessory_power");
         String displayName = body.has("displayName") ? body.get("displayName").getAsString() : body.toString();
 
-        if (magicalPower != null) {
-            ChatUtil.sendMessage(displayName + " joined - Magical Power: " + magicalPower);
+        if (accessoryPower != null) {
+            ChatUtil.sendMessage(displayName + " joined - Accessory Power: " + accessoryPower);
         }
     }
 
