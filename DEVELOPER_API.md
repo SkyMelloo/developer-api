@@ -307,7 +307,7 @@ Current application-level limits, all on a 1-minute window:
 - `/api/public/mod/v1/*` via real mod-auth (no personal key): **600 requests / minute / verified Minecraft UUID**
 - personal API key traffic: its own budget per **individual key**, not shared across keys on the same account -
   Test key **400/minute**, Mod Developer/Website Developer/API Tester keys **1000/minute** each
-- fresh (non-cached) Hypixel-backed lookups: **5 / minute / caller**, shared Hypixel API key budget
+- fresh (non-cached) Hypixel-backed lookups: **10 / minute / caller**, shared Hypixel API key budget
 
 A rate-limited request returns HTTP `429`, normally with:
 
